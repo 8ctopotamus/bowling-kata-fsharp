@@ -8,17 +8,17 @@
     ".NETCoreApp,Version=v6.0": {
       "bowling-kata-fsharp/1.0.0": {
         "dependencies": {
-          "FSharp.Core": "6.0.6"
+          "FSharp.Core": "6.0.4"
         },
         "runtime": {
           "bowling-kata-fsharp.dll": {}
         }
       },
-      "FSharp.Core/6.0.6": {
+      "FSharp.Core/6.0.4": {
         "runtime": {
           "lib/netstandard2.1/FSharp.Core.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.622.46901"
+            "fileVersion": "6.0.422.21903"
           }
         },
         "resources": {
@@ -71,12 +71,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FSharp.Core/6.0.6": {
+    "FSharp.Core/6.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZSwKKw+q50wDYHNs12WkKKgZ5vJScN2+cbq6+4jvn8H/D2W8rGMlybGNLHSF96v/Igx680mV7fPTtQe3V/quxg==",
-      "path": "fsharp.core/6.0.6",
-      "hashPath": "fsharp.core.6.0.6.nupkg.sha512"
+      "sha512": "sha512-CYqAfmO7JvN38M+ACkstS8taVfl8C0mCkvSiBAshfKuu2Nut6+8MuFU7Wahu09wGIyFPlRz5ArFWxSOM5mhMSA==",
+      "path": "fsharp.core/6.0.4",
+      "hashPath": "fsharp.core.6.0.4.nupkg.sha512"
     }
   }
 }

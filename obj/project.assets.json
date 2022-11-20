@@ -2,17 +2,13 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "FSharp.Core/6.0.6": {
+      "FSharp.Core/6.0.4": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/FSharp.Core.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.1/FSharp.Core.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.1/FSharp.Core.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.1/FSharp.Core.dll": {}
         },
         "resource": {
           "lib/netstandard2.1/cs/FSharp.Core.resources.dll": {
@@ -66,17 +62,17 @@
     }
   },
   "libraries": {
-    "FSharp.Core/6.0.6": {
-      "sha512": "ZSwKKw+q50wDYHNs12WkKKgZ5vJScN2+cbq6+4jvn8H/D2W8rGMlybGNLHSF96v/Igx680mV7fPTtQe3V/quxg==",
+    "FSharp.Core/6.0.4": {
+      "sha512": "CYqAfmO7JvN38M+ACkstS8taVfl8C0mCkvSiBAshfKuu2Nut6+8MuFU7Wahu09wGIyFPlRz5ArFWxSOM5mhMSA==",
       "type": "package",
-      "path": "fsharp.core/6.0.6",
+      "path": "fsharp.core/6.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "contentFiles/any/netstandard2.0/FSharp.Core.xml",
         "contentFiles/any/netstandard2.1/FSharp.Core.xml",
-        "fsharp.core.6.0.6.nupkg.sha512",
+        "fsharp.core.6.0.4.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/netstandard2.0/FSharp.Core.dll",
         "lib/netstandard2.0/FSharp.Core.xml",
@@ -113,35 +109,29 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "FSharp.Core >= 6.0.6"
+      "FSharp.Core >= 6.0.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joshn\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Josh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\bowling-kata-fsharp.fsproj",
+      "projectUniqueName": "C:\\Users\\Josh\\code\\bowling-kata-fsharp\\bowling-kata-fsharp.fsproj",
       "projectName": "bowling-kata-fsharp",
-      "projectPath": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\bowling-kata-fsharp.fsproj",
-      "packagesPath": "C:\\Users\\joshn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\obj\\",
+      "projectPath": "C:\\Users\\Josh\\code\\bowling-kata-fsharp\\bowling-kata-fsharp.fsproj",
+      "packagesPath": "C:\\Users\\Josh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Josh\\code\\bowling-kata-fsharp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\joshn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Josh\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\6.0.402\\FSharp\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\6.0.300\\FSharp\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -158,7 +148,7 @@
           "FSharp.Core": {
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[6.0.6, )",
+            "version": "[6.0.4, )",
             "generatePathProperty": true
           }
         },
@@ -168,8 +158,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -178,7 +167,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
