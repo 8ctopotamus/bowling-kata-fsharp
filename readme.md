@@ -1,6 +1,8 @@
 # F# Bowling Kata
 
-[Kata description](https://codingdojo.org/kata/Bowling/)
+Bowling Kata in `F#`: 
 
-## Resources
+**[Kata description](https://codingdojo.org/kata/Bowling/)**
+
+## Helpful Links
 * [Pick random element from list](https://zetcode.com/fsharp/random/)

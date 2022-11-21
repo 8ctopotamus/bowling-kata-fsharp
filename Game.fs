@@ -2,18 +2,21 @@ namespace Bowling
 
 module Game = 
 
+  open System
   open Bowling.Frame
 
   let playFrame (frame: Frame) =
+    printfn "Roll 1"
     let roll1, _ = frame.roll() // first roll
-    printfn "You rolled a %A" roll1
-    frame.print()
+    printfn "You rolled a %s" (Frame.getSlotLabel roll1)
     let (slot1, _) = frame.Slots // slot1 result
     match slot1 with 
-    | EMPTY -> printfn "You got a strike so skipping second roll."
+    | EMPTY -> printfn "You got a strike so skipping second roll.\n"
     | _ -> 
+      printfn "Roll 2"
       let _, roll2 = frame.roll(); 
-      printfn "Second roll was a %A" roll2; frame.print();
+      printfn "Second roll was a %s" (Frame.getSlotLabel roll2);
+    printfn "----------------\n"
     frame
 
   let calculateScore (frames: Frame[]) =
@@ -27,15 +30,26 @@ module Game =
       score <- score + v1 + v2
     score
 
+  let printScoreboard (frames: Frame[]) =
+      let yBorder = "-----------------------------------------------------------------------------------"
+      printfn "SCOREBOARD:"
+      let framesDisplay =
+        frames 
+        |> Array.map((fun frame -> frame.getDisplayString())) 
+        |> String.concat "|"
+      let score = frames |> calculateScore
+      printfn "%s" yBorder
+      printfn "| %s | %i" framesDisplay score
+      printfn "%s" yBorder
+
   let play () =
     printfn "Staring frames:\n"
     let frames = [| for i in 1..10 do yield Frame.create() |]
-    frames |> Frame.printScoreboard
+    frames |> printScoreboard
     
     printfn "Played frames:\n"
     let playedFrames = frames |> Array.map playFrame
-    playedFrames |> Frame.printScoreboard
-
+    playedFrames |> printScoreboard
+    
     let finalScore = playedFrames |> calculateScore
-    printfn "Final Score: %i" finalScore
-
+    finalScore

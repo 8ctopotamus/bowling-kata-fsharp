@@ -4,6 +4,7 @@
 let main argv: int =
   
   printfn "--- F# BOWLING KATA ---"
-  Game.play()
-
+  let finalScore = Game.play()
+  printfn "Final Score: %i" finalScore
+  
   0
