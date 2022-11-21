@@ -20,11 +20,7 @@ type Frame =
     let pins = [|0..this.Pins|]
     let pinsKnocked = pins |> Array.item (rand.Next(pins.Length))
     this.Pins <- this.Pins - pinsKnocked
-    let (slot1, slot2) = this.Scores
-
-    // printfn "Pins knocked: %A" this.Pins
-    // printfn "Pins knocked: %A" pinsKnocked
-
+    let (slot1, _) = this.Scores
     let result =
       match this.Pins with
       | 0 -> 
@@ -35,31 +31,21 @@ type Frame =
         match slot1 with 
           | EMPTY -> (PINS pinsKnocked, EMPTY)
           | _ -> (slot1, PINS pinsKnocked)      
-
-    // printfn "Reult: %A" result
     this.Scores <- result
     ()
-  
 
+let playFrames (frame: Frame) =
+  frame.roll()
+  frame.roll()
+  frame
 
 [<EntryPoint>]
 let main argv: int =
   
-  // let frames: Frame[] = 
-  //   (Array.create 10 (EMPTY 0, EMPTY 0))
-    // |> Array.map throwBall
-  // printfn "%A" frames
+  let frames = 
+    (Array.create 10 Frame.Default)
+    |> Array.map playFrames
 
-  let f1 = Frame.Default
-  f1.roll()
-  printfn "%A" (f1)
-  f1.roll()
-  printfn "%A" (f1)
-
-  let f2 = Frame.Default
-  f2.roll()
-  printfn "%A" (f2)
-  f2.roll()
-  printfn "%A" (f2)
+  printfn "%A" frames
 
   0

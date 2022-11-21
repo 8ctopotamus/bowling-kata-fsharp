@@ -123,9 +123,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\bowling-kata-fsharp.fsproj",
-      "projectName": "bowling-kata-fsharp",
-      "projectPath": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\bowling-kata-fsharp.fsproj",
+      "projectUniqueName": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\bowling-kata.fsproj",
+      "projectName": "bowling-kata",
+      "projectPath": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\bowling-kata.fsproj",
       "packagesPath": "C:\\Users\\joshn\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\obj\\",
       "projectStyle": "PackageReference",
