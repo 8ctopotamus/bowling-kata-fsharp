@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "TE2rO3J1rjPt0wORDT0IQv7Gy/Bg6zeFPRXKk3syWzP6Nn6T6S/gS5PzFBYk/06wh/qRa2SqMoQenzZ4uMdAmg==",
+  "dgSpecHash": "MFsj4NTLqkRVN+066en5bGAUvLIzpIBOM3CVUfZ4YU3OyyxZpJCrtEek+2GktGODfMx7gqk6ZAP1onAFaJss7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joshn\\github\\bowling-kata-fsharp\\bowling-kata.fsproj",
+  "projectFilePath": "C:\\Users\\Josh\\code\\bowling-kata-fsharp\\bowling-kata.fsproj",
   "expectedPackageFiles": [
-    "C:\\Users\\joshn\\.nuget\\packages\\fsharp.core\\6.0.6\\fsharp.core.6.0.6.nupkg.sha512"
+    "C:\\Users\\Josh\\.nuget\\packages\\fsharp.core\\6.0.4\\fsharp.core.6.0.4.nupkg.sha512"
   ],
   "logs": []
 }
