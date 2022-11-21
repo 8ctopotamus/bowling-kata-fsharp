@@ -14,11 +14,13 @@ module Frame =
 
   type Frame = 
     { mutable Pins: int
-      mutable Slots: Tuple<Slot, Slot> }
+      mutable Slots: Tuple<Slot, Slot>
+      Interactive: bool }
 
-    static member create () =
+    static member create (interactive) =
       { Pins = 10 
-        Slots = EMPTY, EMPTY }
+        Slots = EMPTY, EMPTY
+        Interactive = interactive }
 
     static member getSlotLabel (slot: Slot) =
       match slot with
@@ -36,9 +38,23 @@ module Frame =
 
     static member pluralizePins (numPins: int) = match numPins with | 1 -> "pin" | _ -> "pins"
 
-    member this.roll () = 
+    member private this.getPinsKnocked () =
       let pins = [|0..this.Pins|]
-      let pinsKnocked = pins |> Array.item (rand.Next(pins.Length))
+      printfn "Take a roll! Pins: %A" pins
+      let pinsKnocked = 
+        match this.Interactive with
+        | true -> 
+          let randNum = rand.Next(pins.Length)
+          let guessed = Console.ReadLine() |> int
+          printfn $"Rand: {randNum} | Guessed: {guessed}"
+          let diff = abs (randNum - guessed)
+          diff
+        | false ->
+          pins |> Array.item (rand.Next(pins.Length))
+      pinsKnocked
+
+    member this.roll () = 
+      let pinsKnocked = this.getPinsKnocked()
       this.Pins <- this.Pins - pinsKnocked  
       let (slot1, _) = this.Slots
       let updatedSlots =

@@ -1,7 +1,6 @@
 ﻿open Bowling
-open System
 
-[<EntryPoint>]  
+[<EntryPoint>]
 let main argv: int =
 
   let interactive = not (argv |> Array.isEmpty)

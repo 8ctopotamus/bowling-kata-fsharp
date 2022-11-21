@@ -42,10 +42,8 @@ module Game =
       printfn "%s" yBorder
 
   let play (interactive: bool) =
-    printfn "Staring frames:\n"
-    let frames = [| for i in 1..10 do yield Frame.create() |]
-    frames |> printScoreboard
-    
+    let frames = [| for i in 1..10 do yield Frame.create(interactive) |]
+
     printfn "Played frames:\n"
     let playedFrames = frames |> Array.map playFrame
     playedFrames |> printScoreboard
