@@ -49,6 +49,7 @@ module Game =
       let pinsKnockedMsg = Frame.pluralizePins pinsKnocked
       let pinsLeftMsg = Frame.pluralizePins this.Pins
       printfn $"{pinsKnocked} {pinsKnockedMsg} knocked! {this.Pins} {pinsLeftMsg} remaining."
+      this.Pins <- this.Pins - pinsKnocked  
       let (slot1, _) = this.Slots
       let updatedSlots =
         match this.Pins with
@@ -60,7 +61,7 @@ module Game =
           match slot1 with 
             | EMPTY -> (PINS pinsKnocked, EMPTY)
             | _ -> (slot1, PINS pinsKnocked)
-      this.Pins <- this.Pins - pinsKnocked  
+      
       this.Slots <- updatedSlots
       updatedSlots
 
@@ -89,6 +90,7 @@ module Game =
       let slot1, slot2 = frame.Slots
       let v1 = Frame.getSlotValue slot1 
       let v2 = Frame.getSlotValue slot2
+      // TODO: fix spare and strike scoring
       score <- score + v1 + v2
     score
 
