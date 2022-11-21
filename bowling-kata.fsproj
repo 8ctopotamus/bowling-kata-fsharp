@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Compile Include="Frame.fs" />
+    <Compile Include="Game.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
