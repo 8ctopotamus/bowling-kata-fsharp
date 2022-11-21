@@ -2,7 +2,6 @@ namespace Bowling
 
 module Game = 
 
-  open System
   open Bowling.Frame
 
   let playFrame (frame: Frame) =
@@ -42,7 +41,7 @@ module Game =
       printfn "| %s | %i" framesDisplay score
       printfn "%s" yBorder
 
-  let play () =
+  let play (interactive: bool) =
     printfn "Staring frames:\n"
     let frames = [| for i in 1..10 do yield Frame.create() |]
     frames |> printScoreboard

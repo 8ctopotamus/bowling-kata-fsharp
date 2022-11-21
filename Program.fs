@@ -1,10 +1,14 @@
 ﻿open Bowling
+open System
 
 [<EntryPoint>]  
 let main argv: int =
-  
+
+  let interactive = not (argv |> Array.isEmpty)
   printfn "--- F# BOWLING KATA ---"
-  let finalScore = Game.play()
+  printfn "Interactive mode: %b" interactive
+
+  let finalScore = Game.play(interactive)
   printfn "Final Score: %i" finalScore
-  
+
   0
