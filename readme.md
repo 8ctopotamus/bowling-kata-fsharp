@@ -13,5 +13,10 @@ Run in "interactive" mode (human player):
 ## Dependencies
 * Dotnet 6
 
+## Roadmap
+* [ ] Calculate `/` and `X`
+* [ ] Interactive Mode
+* [ ] Compile for web (using [Fable (JS)](https://fable.io/) or [Bolero (WASM)](https://fsbolero.io/))
+
 ## Helpful Links
 * [Pick random element from list](https://zetcode.com/fsharp/random/)
