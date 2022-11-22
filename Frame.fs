@@ -38,40 +38,55 @@ module Frame =
 
     static member pluralizePins (numPins: int) = match numPins with | 1 -> "pin" | _ -> "pins"
 
-    member private this.getPinsKnocked () =
+    member private this.humanRoll () =
       let pins = [|0..this.Pins|]
-      let pinsKnocked = 
-        match this.Interactive with
-        | true -> 
-          printfn "Take a roll! Pins: %s (%i)" (pins |> string) this.Pins
-          let randNum = rand.Next(pins.Length)
-          printfn $"Rand: {randNum}"
-          let guessed = Console.ReadLine() |> int
-          printfn $"Guessed: {guessed}"
-          abs (randNum - guessed)
-        | false ->
-          pins |> Array.item (rand.Next(pins.Length))
+      let randNum = rand.Next(pins.Length)
+      printfn "Take a roll! Pins: %s (%i)" (pins |> string) this.Pins
+      printfn $"Rand: {randNum}"
+      let guessed = Console.ReadLine() |> int
+      printfn $"Guessed: {guessed}"
+      let pinsKnocked = abs (randNum - guessed)
       pinsKnocked
 
+    member private this.autoRoll () =
+      let pins = [|0..this.Pins|]
+      pins |> Array.item (rand.Next(pins.Length))
+
     member this.roll () = 
-      let pinsKnocked = this.getPinsKnocked()
-      this.Pins <- this.Pins - pinsKnocked  
+      let pinsKnocked = 
+        match this.Interactive with
+        | true -> this.humanRoll()
+        | false -> this.autoRoll()
+      this.Pins <- this.Pins - pinsKnocked
       let (slot1, _) = this.Slots
       let updatedSlots =
         match this.Pins with
-        | 0 -> 
+        | 0 -> // 0 pins left standing
           match slot1 with
-            | EMPTY -> (STRIKE, EMPTY)
-            | _ -> (slot1, SPARE)
-        | _ -> 
+            | EMPTY -> (STRIKE, EMPTY) // first roll
+            | _ -> (slot1, SPARE) // second roll
+        | _ -> // at least 1 pin left standing
           match slot1 with 
-            | EMPTY -> (PINS pinsKnocked, EMPTY)
-            | _ -> (slot1, PINS pinsKnocked) 
+            | EMPTY -> (PINS pinsKnocked, EMPTY) // first roll
+            | _ -> (slot1, PINS pinsKnocked) // second roll
       this.Slots <- updatedSlots
       updatedSlots
+
+    member this.bonusRoll (numRolls: int) =
+      this.Pins <- 10
+      let mutable bonusPoints = 0
+      for i in 1..numRolls do
+        let pinsKnocked = 
+          match this.Interactive with
+          | true -> this.humanRoll()
+          | false -> this.autoRoll()
+        printfn $"Bonus roll {i}. Knocked {pinsKnocked} {(Frame.pluralizePins pinsKnocked)}"
+        this.Pins <- this.Pins - pinsKnocked
+        bonusPoints <- bonusPoints + pinsKnocked
+        
 
     member this.getDisplayString () =
       let slot1, slot2 = this.Slots
       let label1 = Frame.getSlotLabel slot1
       let label2 = Frame.getSlotLabel slot2
-      $" {label1} : {label2} "
+      $" {label1}:{label2} "
