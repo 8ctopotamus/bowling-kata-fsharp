@@ -40,15 +40,15 @@ module Frame =
 
     member private this.getPinsKnocked () =
       let pins = [|0..this.Pins|]
-      printfn "Take a roll! Pins: %A" pins
       let pinsKnocked = 
         match this.Interactive with
         | true -> 
+          printfn "Take a roll! Pins: %s (%i)" (pins |> string) this.Pins
           let randNum = rand.Next(pins.Length)
+          printfn $"Rand: {randNum}"
           let guessed = Console.ReadLine() |> int
-          printfn $"Rand: {randNum} | Guessed: {guessed}"
-          let diff = abs (randNum - guessed)
-          diff
+          printfn $"Guessed: {guessed}"
+          abs (randNum - guessed)
         | false ->
           pins |> Array.item (rand.Next(pins.Length))
       pinsKnocked
@@ -75,5 +75,3 @@ module Frame =
       let label1 = Frame.getSlotLabel slot1
       let label2 = Frame.getSlotLabel slot2
       $" {label1} : {label2} "
-
-      

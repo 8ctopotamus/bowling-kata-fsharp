@@ -11,7 +11,7 @@ Run in "interactive" mode (human player):
 `dotnet run interactive`
 
 ## Dependencies
-* Dotnet 6
+* [Dotnet 6+](https://dotnet.microsoft.com/en-us/)
 
 ## Roadmap
 * [ ] Calculate `/` and `X`

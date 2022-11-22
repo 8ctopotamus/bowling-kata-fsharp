@@ -8,7 +8,7 @@ module Game =
     printfn "Roll 1"
     let roll1, _ = frame.roll() // first roll
     printfn "You rolled a %s" (Frame.getSlotLabel roll1)
-    let (slot1, _) = frame.Slots // slot1 result
+    let slot1, _ = frame.Slots // slot1 result
     match slot1 with 
     | EMPTY -> printfn "You got a strike so skipping second roll.\n"
     | _ -> 
@@ -45,7 +45,7 @@ module Game =
     let frames = [| for i in 1..10 do yield Frame.create(interactive) |]
 
     printfn "Played frames:\n"
-    let playedFrames = frames |> Array.map playFrame
+    let playedFrames = frames |> Array.map (playFrame)
     playedFrames |> printScoreboard
     
     let finalScore = playedFrames |> calculateScore
